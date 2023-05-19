@@ -1,19 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 02:41:38 by ebennix           #+#    #+#             */
-/*   Updated: 2023/04/20 02:43:32 by ebennix          ###   ########.fr       */
+/*   Created: 2023/05/15 20:13:14 by ebennix           #+#    #+#             */
+/*   Updated: 2023/05/19 17:02:13 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/utils.h"
+#include "philo.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int philo(int ac, char **av)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+    data *philo;
+
+    philo = malloc(sizeof(data));
+    if (!philo)
+        exit_msg("Memory problem !!", RED, 1);
+    parse(++av);
+
+    return (0);
+}
+
+int main (int ac, char **av)
+{
+    int err;
+
+    if (ac != 4 || ac != 5)
+        exit_msg("4 or 5 arguments are allowed", RED, 1);
+    err = philo(ac, av);
+    return (err);
 }

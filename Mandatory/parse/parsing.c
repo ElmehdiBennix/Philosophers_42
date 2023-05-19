@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 01:07:37 by ebennix           #+#    #+#             */
-/*   Updated: 2023/04/20 02:43:34 by ebennix          ###   ########.fr       */
+/*   Created: 2023/05/19 16:47:27 by ebennix           #+#    #+#             */
+/*   Updated: 2023/05/19 16:56:59 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/utils.h"
+# include "philo.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void parse(char **av)
 {
-	unsigned int	i;
+    
 
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i] != '\0')
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
 }
