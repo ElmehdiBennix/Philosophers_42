@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:13:14 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/21 17:27:15 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/21 17:41:23 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main (int ac, char **av)
     int err;
 
     if (ac < 5 || ac > 6)
-        exit_msg("4 or 5 arguments are allowed", RED, 1);
+        exit_msg("4 or 5 arguments are allowed", YELLOW, 1);
     err = philo(ac, ++av);
     return (err);
 }
