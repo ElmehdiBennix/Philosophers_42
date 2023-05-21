@@ -6,13 +6,13 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 07:56:09 by ebennix           #+#    #+#              #
-#    Updated: 2023/05/19 17:22:44 by ebennix          ###   ########.fr        #
+#    Updated: 2023/05/21 17:27:58 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXE := philo
 
-HEADER := philo.h
+HEADER := inc/philo.h
 
 CC := cc
 

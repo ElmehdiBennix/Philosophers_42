@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/19 21:50:43 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/21 17:27:41 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@
 // cant know if philo is about to die
 // dont speak with the other philo
 
-typedef struct philo{
+typedef struct s_data{
     unsigned int    n_philo;
     unsigned int    death_time;
     unsigned int    eat_time;
     unsigned int    time_to_sleep;
-    unsigned int    number_of_time_philo_eats;
+    int    number_of_time_philo_eats;
 
-}               data;
+}               t_data;
 
-void parse(int ac, char **av);
+void    parse(int ac, char **av, t_data *var);
 int	    ft_isdigit(char c);
 void	exit_msg(char *msg, char *color, int erno);
 
