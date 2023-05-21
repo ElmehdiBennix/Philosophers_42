@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:13:14 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/19 21:29:14 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/21 17:27:15 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 int philo(int ac, char **av)
 {
-    data *philo;
+    t_data *var;
 
-    philo = malloc(sizeof(data));
-    if (!philo)
+    var = malloc(sizeof(t_data));
+    if (!var)
         exit_msg("Memory problem !!", RED, 1);
-    parse(ac ,av);
-
+    parse(ac ,av, var);
+    printf("%d\n",var->n_philo);
+    printf("%d\n",var->death_time);
+    printf("%d\n",var->eat_time);
+    printf("%d\n",var->time_to_sleep);
+    printf("%d\n",var->number_of_time_philo_eats);
     return (0);
 }
 
