@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/21 18:12:52 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/21 18:30:43 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ typedef struct s_data{
 void    parse(int ac, char **av, t_data *var);
 int	    ft_isdigit(char c);
 void	exit_msg(char *msg, char *color, int erno);
+void init_philos(t_data *var);
 
 #endif

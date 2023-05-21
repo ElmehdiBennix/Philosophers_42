@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:17:20 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/21 18:29:13 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/21 18:29:51 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void init_philos(t_data *var)
     while (philos)
     {
         philos->id = i;
-        pthread_create(&philos->philo, NULL, NULL, NULL);
-        
+        // pthread_create(&philos->philo, NULL, NULL, NULL);
     }
 
 
