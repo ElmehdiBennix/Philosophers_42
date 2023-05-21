@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/21 17:27:41 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/21 18:12:52 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,19 @@
 // cant know if philo is about to die
 // dont speak with the other philo
 
+typedef struct  s_philo{
+    unsigned int    id;
+    pthread_t       philo;
+
+}               t_philo;
+
 typedef struct s_data{
-    unsigned int    n_philo;
+    t_philo         *philosophers;
+    unsigned int    numb_of_philos;
     unsigned int    death_time;
-    unsigned int    eat_time;
-    unsigned int    time_to_sleep;
-    int    number_of_time_philo_eats;
+    unsigned int    eating_time;
+    unsigned int    sleeping_time;
+    int             eating_reps;
 
 }               t_data;
 
