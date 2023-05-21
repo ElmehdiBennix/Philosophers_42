@@ -6,19 +6,20 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 07:56:09 by ebennix           #+#    #+#              #
-#    Updated: 2023/05/19 17:05:00 by ebennix          ###   ########.fr        #
+#    Updated: 2023/05/19 17:22:44 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXE := philo
 
-ARCH := utils/utils.a
+HEADER := philo.h
 
 CC := cc
 
-CFLAGS := -Wall -Wextra -Werror -g
+CFLAGS := -Wall -Wextra -g
+# -Werror
 
-FILES := 
+FILES := Mandatory/philo	Mandatory/utils/error	Mandatory/utils/tools	Mandatory/parse/parsing \
 
 SRC := $(FILES:=.c)
 
@@ -32,18 +33,16 @@ m := MakefileAutoPush
 all : $(EXE)
 
 $(EXE) : $(OBJ)
-	$(CC) $(OBJ) $(ARCH) $(EXE)
+	$(CC) $(OBJ) -o $(EXE)
 
 %.o : %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJ)
-	$(RM) $(OBJ_B)
 
 fclean : clean
 	$(RM) $(EXE)
-	$(RM) $(EXE_B)
 
 re : fclean all
 

@@ -6,11 +6,11 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:14:39 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/15 20:15:17 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/19 17:08:07 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../inc/philo.h"
 
 void	exit_msg(char *msg, char *color, int erno)
 {
