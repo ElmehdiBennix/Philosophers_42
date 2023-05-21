@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:47:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/21 17:25:45 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/21 17:42:06 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,18 @@ void    get_data(t_data *var, int data, int i)
         var->number_of_time_philo_eats = data;
 }
 
+void    valid_data(t_data *var)
+{
+    if (var->n_philo > 200)
+        exit_msg("Can't have more then 200 Philos.", YELLOW, 1);
+    if (var->eat_time < 60)
+        exit_msg("Can't have time_to_eat under 60 ms.", YELLOW, 1);
+    if (var->death_time < 60)
+        exit_msg("Can't have time_to_die under 60 ms.", YELLOW, 1);
+    if (var->time_to_sleep < 60)
+        exit_msg("Can't have time_to_sleep under 60 ms.", YELLOW, 1);
+}
+
 void    parse(int ac, char **av, t_data *var)
 {
     int     i;
@@ -38,13 +50,14 @@ void    parse(int ac, char **av, t_data *var)
         while(*tmp)
         {
             if (!ft_isdigit(*tmp))
-                exit_msg("error",RED,2);
+                exit_msg("error", RED, 2);
             tmp++;
         }
         get_data(var,atoi(*av),i);
         i++;
         av++;
     }
+    valid_data(var);
     if (ac == 5)
         var->number_of_time_philo_eats = -1;       
 }
