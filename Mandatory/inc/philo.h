@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/21 18:30:43 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/26 19:48:09 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <unistd.h>
 # include <sys/time.h>
 # include <pthread.h>
+# include <stdbool.h>
+# include <limits.h>
 
 // they can do only one thing at a time
 // number of forks is same as philos
@@ -30,14 +32,23 @@
 // cant know if philo is about to die
 // dont speak with the other philo
 
+typedef struct s_list {
+    void            *content;
+    struct s_list   *next;
+}t_list;
+
 typedef struct  s_philo{
-    unsigned int    id;
-    pthread_t       philo;
+    unsigned int        id;
+    pthread_t           philo;
+    pthread_mutex_t     fork;
+    // pthread_mutex_t     print;
+    long                last_eat;
+    bool                death;
 
 }               t_philo;
 
 typedef struct s_data{
-    t_philo         *philosophers;
+    t_list         *philosophers;
     unsigned int    numb_of_philos;
     unsigned int    death_time;
     unsigned int    eating_time;
@@ -46,9 +57,17 @@ typedef struct s_data{
 
 }               t_data;
 
-void    parse(int ac, char **av, t_data *var);
 int	    ft_isdigit(char c);
+void    init_philos(t_data *var);
+void    parse(int ac, char **av, t_data *var);
 void	exit_msg(char *msg, char *color, int erno);
-void init_philos(t_data *var);
+t_list	*ft_lstnew(void *content);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstcreate_front(t_list **lst, void *content);
+void	ft_lstcreate_back(t_list **lst, void *content);
+void	ft_lstfree(void *stack);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+int	ft_atoi(const char *str);
 
 #endif

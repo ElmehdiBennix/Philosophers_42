@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:47:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/21 18:15:06 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/26 00:37:24 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void    parse(int ac, char **av, t_data *var)
                 exit_msg("error", RED, 2);
             tmp++;
         }
-        get_data(var, atoi(*av), i);
+        get_data(var, ft_atoi(*av), i);
         i++;
         av++;
     }
