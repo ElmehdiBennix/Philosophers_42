@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:17:20 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/21 18:29:51 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/26 19:26:43 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,22 @@
 
 void init_philos(t_data *var)
 {
-    int i;
-    t_philo *philos;
+    int     i;
+    void    *p;
+    t_list  *tmp;
 
     i = 0;
-    var->philosophers = malloc(var->numb_of_philos*sizeof(t_philo));
-    if (!var->philosophers)
-        exit_msg("Memory problem !!", RED, 2);
-    philos = var->philosophers;
-    while (philos)
+    while (i <= var->numb_of_philos)
     {
-        philos->id = i;
-        // pthread_create(&philos->philo, NULL, NULL, NULL);
+        p = malloc(sizeof(t_philo));
+        if (!p)
+            exit_msg("Memory problem !!", RED, 1);
+        if (i == 0)
+            var->philosophers = ft_lstnew(p);
+        else
+	        ft_lstcreate_back(&var->philosophers,p);
+        i++;
     }
-
-
-
+	tmp = ft_lstlast(var->philosophers);
+	tmp->next = var->philosophers;
 }
