@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:13:14 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/21 18:16:49 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/27 19:17:16 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@ int philo(int ac, char **av)
         exit_msg("Memory problem !!", RED, 1);
     parse(ac ,av, var);
     init_philos(var);
+    // // printf("%d\n",var->numb_of_philos);
+    // while (var->philosophers)
+    // {
+    //     printf("%d\n",var->philosophers->id);
+    //     var->philosophers = var->philosophers->next;
+    // }
     // printf("%d\n",var->n_philo);
     // printf("%d\n",var->death_time);
     // printf("%d\n",var->eat_time);

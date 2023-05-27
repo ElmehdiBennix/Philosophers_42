@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/26 19:48:09 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/27 19:19:08 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,23 @@
 // cant know if philo is about to die
 // dont speak with the other philo
 
-typedef struct s_list {
-    void            *content;
-    struct s_list   *next;
-}t_list;
+typedef struct timeval {
+    time_t       tv_sec;   /* seconds since Jan. 1, 1970 */
+    suseconds_t  tv_usec;  /* and microseconds */
 
-typedef struct  s_philo{
-    unsigned int        id;
+} time;
+
+
+typedef struct s_list {
+    int                 id;
     pthread_t           philo;
     pthread_mutex_t     fork;
     // pthread_mutex_t     print;
     long                last_eat;
     bool                death;
+    struct s_list       *next;
 
-}               t_philo;
+}t_list;
 
 typedef struct s_data{
     t_list         *philosophers;
@@ -61,13 +64,13 @@ int	    ft_isdigit(char c);
 void    init_philos(t_data *var);
 void    parse(int ac, char **av, t_data *var);
 void	exit_msg(char *msg, char *color, int erno);
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(int id);
 t_list	*ft_lstlast(t_list *lst);
-void	ft_lstcreate_front(t_list **lst, void *content);
-void	ft_lstcreate_back(t_list **lst, void *content);
-void	ft_lstfree(void *stack);
+void	ft_lstcreate_front(t_list **lst, int id);
+void	ft_lstcreate_back(t_list **lst, int id);
+void	ft_lstfree(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-int	ft_atoi(const char *str);
+int	    ft_atoi(const char *str);
 
 #endif
