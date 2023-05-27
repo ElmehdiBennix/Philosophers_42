@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:13:14 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/27 19:17:16 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/27 22:11:19 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,30 @@
 
 int philo(int ac, char **av)
 {
-    t_data *var;
+    unsigned int i;
+    t_data var;
 
-    var = malloc(sizeof(t_data));
-    if (!var)
-        exit_msg("Memory problem !!", RED, 1);
-    parse(ac ,av, var);
-    init_philos(var);
-    // // printf("%d\n",var->numb_of_philos);
-    // while (var->philosophers)
-    // {
-    //     printf("%d\n",var->philosophers->id);
-    //     var->philosophers = var->philosophers->next;
-    // }
-    // printf("%d\n",var->n_philo);
-    // printf("%d\n",var->death_time);
-    // printf("%d\n",var->eat_time);
-    // printf("%d\n",var->time_to_sleep);
-    // printf("%d\n",var->number_of_time_philo_eats);
+    i = 0;
+    parse(ac ,av, &var);
+    init_philos(&var);
+    while (i <= var.numb_of_philos)
+    {
+        if(pthread_create(&var.philosophers->philo, NULL ,&philo_cycle, NULL) != 0)
+            exit_msg("error",RED,1);
+        printf("%d id has been created \n", var.philosophers->id);
+        var.philosophers = var.philosophers->next;
+        i++;
+    }
+    i = 0;
+    while (i <= var.numb_of_philos)
+    {
+        if(pthread_join(var.philosophers->philo, NULL) != 0)
+            exit_msg("error",RED,1);
+        printf("%d id has been joined \n", var.philosophers->id);
+        var.philosophers = var.philosophers->next;
+        i++;
+    }
+    //destroy mutex after the use;
     return (0);
 }
 

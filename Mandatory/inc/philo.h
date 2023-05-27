@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/27 19:19:08 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/27 22:11:28 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,18 @@
 // cant know if philo is about to die
 // dont speak with the other philo
 
-typedef struct timeval {
-    time_t       tv_sec;   /* seconds since Jan. 1, 1970 */
-    suseconds_t  tv_usec;  /* and microseconds */
+typedef struct s_time {
+    time_t       t_sec;   /* seconds since Jan. 1, 1970 */
+    suseconds_t  t_usec;  /* and microseconds */
 
-} time;
+} t_time;
 
 
 typedef struct s_list {
     int                 id;
     pthread_t           philo;
     pthread_mutex_t     fork;
-    // pthread_mutex_t     print;
+    pthread_mutex_t     print;
     long                last_eat;
     bool                death;
     struct s_list       *next;
@@ -72,5 +72,8 @@ void	ft_lstfree(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int	    ft_atoi(const char *str);
+
+void    philo_cycle();
+
 
 #endif

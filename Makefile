@@ -6,7 +6,7 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 07:56:09 by ebennix           #+#    #+#              #
-#    Updated: 2023/05/26 19:51:04 by ebennix          ###   ########.fr        #
+#    Updated: 2023/05/27 22:04:22 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ CFLAGS := -Wall -Wextra -g
 
 FILES := Mandatory/philo	Mandatory/utils/error	Mandatory/utils/tools	Mandatory/parse/parsing \
 		 Mandatory/parse/init_philos 		Mandatory/utils/ft_atoi			Mandatory/utils/lst		\
+		 Mandatory/life_cycle/philo_cycle \
 
 SRC := $(FILES:=.c)
 
