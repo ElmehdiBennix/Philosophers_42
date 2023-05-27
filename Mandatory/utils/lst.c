@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:28:23 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/26 19:49:42 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/27 19:13:17 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	*lst = new;
 }
 
-void	ft_lstfree(void *stack)
+void	ft_lstfree(t_list *lst)
 {
 	t_list	*arrow;
 
-	arrow = stack;
+	arrow = lst;
 	while (arrow)
 	{		
 		free(arrow);
@@ -43,19 +43,19 @@ void	ft_lstfree(void *stack)
 	}
 }
 
-void	ft_lstcreate_back(t_list **lst, void *content)
+void	ft_lstcreate_back(t_list **lst, int id)
 {
 	t_list	*back;
 
-	back = ft_lstnew(content);
+	back = ft_lstnew(id);
 	ft_lstadd_back(lst, back);
 }
 
-void	ft_lstcreate_front(t_list **lst, void *content)
+void	ft_lstcreate_front(t_list **lst, int id)
 {
 	t_list	*front;
 
-	front = ft_lstnew(content);
+	front = ft_lstnew(id);
 	ft_lstadd_front(lst, front);
 }
 
@@ -70,11 +70,14 @@ t_list	*ft_lstlast(t_list *lst)
 	return (arrow);
 }
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int id)
 {
 	t_list	*node;
 
-	node->content = content;
+	node = (t_list*)malloc(sizeof(t_list));
+	if(!node)
+		return (NULL);
+	node->id = id;
 	node->next = NULL;
 	return (node);
 }
