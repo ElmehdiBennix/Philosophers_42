@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/27 22:11:28 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/27 22:18:49 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int	    ft_atoi(const char *str);
 
-void    philo_cycle();
+void    philo_cycle(t_list *philosophers);
 
 
 #endif

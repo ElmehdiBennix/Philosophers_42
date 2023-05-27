@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 00:35:25 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/27 22:11:01 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/27 22:19:49 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 // }
 
-void    philo_cycle()
+void    philo_cycle(t_list *philosophers)
 {
-    printf("philo routine has started \n");
+    printf("%d philo routine has started \n",philosophers->id);
 }
