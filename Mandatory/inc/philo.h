@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/27 22:23:19 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/05/31 03:04:07 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,23 @@
 // cant know if philo is about to die
 // dont speak with the other philo
 
-typedef struct s_time {
-    time_t       t_sec;   /* seconds since Jan. 1, 1970 */
-    suseconds_t  t_usec;  /* and microseconds */
+// typedef struct s_time {
+//     time_t       t_sec;   /* seconds since Jan. 1, 1970 */
+//     suseconds_t  t_usec;  /* and microseconds */
 
-} t_time;
+// } t_time;
 
 
 typedef struct s_list {
     int                 id;
     pthread_t           philo;
     pthread_mutex_t     fork;
-    pthread_mutex_t     print;
+    // pthread_mutex_t     print;
+    int                 n_eat;
     long                last_eat;
     bool                death;
     struct s_list       *next;
-
-}t_list;
+}              t_list;
 
 typedef struct s_data{
     t_list         *philosophers;
