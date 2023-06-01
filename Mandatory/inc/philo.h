@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/31 03:04:07 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/06/01 14:29:48 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,11 @@ typedef struct s_list {
     int                 id;
     pthread_t           philo;
     pthread_mutex_t     fork;
-    // pthread_mutex_t     print;
+    pthread_mutex_t     print;
     int                 n_eat;
     long                last_eat;
     bool                death;
+    struct s_data       *var;
     struct s_list       *next;
 }              t_list;
 
@@ -73,7 +74,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int	    ft_atoi(const char *str);
 
-void    philo_cycle(t_data *var);
+void    philo_cycle(t_list *philo);
 
 
 #endif
