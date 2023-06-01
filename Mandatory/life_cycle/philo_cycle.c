@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 00:35:25 by ebennix           #+#    #+#             */
-/*   Updated: 2023/05/31 04:56:37 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/06/01 14:29:21 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ unsigned long get_time(long start_time)
     
     s = time.tv_sec * 1000;
     m = time.tv_usec / 1000;
-    return ((s+m) - start_time);
+    return ((s + m) - start_time);
 }
 
 // void dinner_time(t_list *philo , unsigned int time)
@@ -38,16 +38,16 @@ unsigned long get_time(long start_time)
 //     pthread_mutex_unlock(&philo->next->fork);
 // }
 
-void    philo_cycle(t_data *var)
+void    philo_cycle(t_list *philo)
 {
-    (void)var;
-    struct timeval time;
-    gettimeofday(&time, NULL);
+    unsigned long time = get_time(0);
 
-    sleep(5);
-    printf("philo started = %lu \n", get_time((time.tv_sec*1000)+(time.tv_usec/1000)));
-    sleep(5);
-    printf("philo finished\n");
+    printf("philo id = %d\n",philo->id);
+    // sleep(5);
+    // printf("philo started = %lu \n", get_time(bruh));
+    // sleep(5);
+    // printf("philo started = %lu \n", get_time(bruh));
+    // printf("philo finished\n");
 
     // while(true)
     // {
