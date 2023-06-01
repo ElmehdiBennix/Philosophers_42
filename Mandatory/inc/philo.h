@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/06/01 14:29:48 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/06/01 14:30:36 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_list {
     int                 n_eat;
     long                last_eat;
     bool                death;
-    struct s_data       *var;
+    struct s_data      var;
     struct s_list       *next;
 }              t_list;
 
