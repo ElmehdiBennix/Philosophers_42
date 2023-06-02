@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 08:25:36 by ebennix           #+#    #+#             */
-/*   Updated: 2023/04/29 19:24:18 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/06/02 11:55:51 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,12 @@
 # define BLUE "\033[0;34m"
 # define PURPLE "\033[0;35m"
 # define CYAN "\033[0;36m"
+
+//exit error text
+
+# define EXIT_1 "Can't have more then 200 Philos."
+# define EXIT_2 "Can't have time_to_die under 60 ms."
+# define EXIT_3 "Can't have time_to_eat under 60 ms."
+# define EXIT_4 "Can't have time_to_sleep under 60 ms."
 
 #endif

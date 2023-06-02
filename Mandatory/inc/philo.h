@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/06/01 14:44:58 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/06/02 16:00:31 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 #define PHILO_H
 
 # include "colors.h"
-# include <stdarg.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 # include <sys/time.h>
 # include <pthread.h>
@@ -32,49 +30,36 @@
 // cant know if philo is about to die
 // dont speak with the other philo
 
-// typedef struct s_time {
-//     time_t       t_sec;   /* seconds since Jan. 1, 1970 */
-//     suseconds_t  t_usec;  /* and microseconds */
-
-// } t_time;
-
-
-typedef struct s_list {
-    int                 id;
-    pthread_t           philo;
-    pthread_mutex_t     fork;
-    pthread_mutex_t     print;
-    int                 n_eat;
-    long                last_eat;
-    bool                death;
+typedef struct s_philo {
+    unsigned int        id;
+    pthread_t           p_thread;
+    pthread_mutex_t     *r_fork;
+    pthread_mutex_t     l_fork;
+    unsigned int        meals_n;
+    long                last_meal;
     struct s_data       *var;
-    struct s_list       *next;
-}              t_list;
+}              t_philo;
 
 typedef struct s_data{
-    t_list         *philosophers;
-    unsigned int    numb_of_philos;
-    unsigned int    death_time;
-    unsigned int    eating_time;
-    unsigned int    sleeping_time;
+    t_philo         *philos;
+    unsigned int    n_philos;
+    unsigned int    death_t;
+    unsigned int    eating_t;
+    unsigned int    sleeping_t;
     int             eating_reps;
-
+    long            start_clock;
+    pthread_mutex_t print;
+	pthread_mutex_t death;
 }               t_data;
 
-int	    ft_isdigit(char c);
-void    init_philos(t_data *var);
-void    parse(int ac, char **av, t_data *var);
-void	exit_msg(char *msg, char *color, int erno);
-t_list	*ft_lstnew(int id);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstcreate_front(t_list **lst, int id);
-void	ft_lstcreate_back(t_list **lst, int id);
-void	ft_lstfree(t_list *lst);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-int	    ft_atoi(const char *str);
+int	        ft_isdigit(char c);
+int	        init_philo(t_data *var);
+int         parse(int ac, char **av, t_data *var);
+int	        exit_msg(char *msg, char *color, int erno);
+int	        ft_atoi(const char *str);
+long long   get_time(long start_time);
 
-void    philo_cycle(t_list *philo);
+void    philo_cycle(t_philo *philo);
 
 
 #endif
