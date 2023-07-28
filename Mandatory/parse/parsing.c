@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:47:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/06/02 12:02:24 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/07/28 02:03:46 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,5 @@ int    parse(int ac, char **av, t_data *var)
         return(1);
     if (ac == 5)
         var->eating_reps = -1;
-    return (0);     
+    return (0);
 }

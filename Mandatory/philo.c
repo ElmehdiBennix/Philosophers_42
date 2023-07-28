@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:13:14 by ebennix           #+#    #+#             */
-/*   Updated: 2023/06/02 16:01:36 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/07/28 02:02:19 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int philo(int ac, char **av)
         return (1);
     if (init_philo(&var) != 0)
         return (2);
-
+    // free memory after the user
 
     return (0);
 }

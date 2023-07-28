@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 00:35:25 by ebennix           #+#    #+#             */
-/*   Updated: 2023/06/02 15:59:01 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/07/28 02:33:44 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,26 @@
 //     pthread_mutex_unlock(&philo->next->fork);
 // }
 
-void    philo_cycle(t_philo *philo)
+void    *philo_cycle(t_philo *philo)
 {
-    // unsigned long time = get_time(0);
-
-    printf("philo id = %d\n",philo->id);
+    unsigned long bruh = get_time(0);
+    // printf("philo id = %d\n",philo->id);
     // sleep(5);
-    // printf("philo started = %lu \n", get_time(bruh));
+    // printf("philo id %d started = %llu \n",philo->id, get_time(bruh));
     // sleep(5);
-    // printf("philo started = %lu \n", get_time(bruh));
-    // printf("philo finished\n");
+    // printf("philo id %d restart = %llu \n",philo->id, get_time(bruh));
+    // printf("philo id %d finished\n" , philo->id);
 
-    // while(true)
-    // {
-    //     dinner_time(philo, time);
-    //     printf("%lu ms philo = %d is sleeping\n",get_time(time), philo->id);
-    //     usleep(philo->var->sleeping_time);
-    //     printf("%lu ms philo = %d is thinking\n",get_time(time), philo->id);
-    // }
+    while(true) // is alive
+    {
+        dinner_time(philo, time);
+        printf("%lu ms philo = %d is sleeping\n",get_time(time), philo->id);
+        usleep(philo->var->sleeping_time);
+        printf("%lu ms philo = %d is thinking\n",get_time(time), philo->id);
+    }  
+
+
+    
 }
 
 // make file problem
