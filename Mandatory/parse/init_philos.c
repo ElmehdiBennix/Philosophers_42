@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:17:20 by ebennix           #+#    #+#             */
-/*   Updated: 2023/07/28 02:15:30 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/07/28 03:49:42 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	init_philo(t_data *var)
 {
 	unsigned int i;
 	
-	// start world clock
+	var->start_clock = get_time(0);
 	i = -1;
 	var->philos = malloc(sizeof(t_philo) * var->n_philos);
 	if (!var->philos)

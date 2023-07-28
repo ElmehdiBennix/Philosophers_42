@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/07/28 02:11:47 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/07/28 06:06:30 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@
 // they can do only one thing at a time
 // number of forks is same as philos
 // when they eat they put back the fork and sleep
-// to eat u need 2 forks
 // all should eat cant starve and die
 // cant know if philo is about to die
-// dont speak with the other philo
 
 typedef struct s_philo {
     unsigned int        id;
@@ -36,7 +34,7 @@ typedef struct s_philo {
     pthread_mutex_t     *r_fork;
     pthread_mutex_t     l_fork;
     unsigned int        meals_n;
-    long                last_meal;
+    long long           last_meal;
     struct s_data       *var;
 }              t_philo;
 
@@ -47,17 +45,21 @@ typedef struct s_data{
     unsigned int    eating_t;
     unsigned int    sleeping_t;
     int             eating_reps;
-    long            start_clock;
+    long long       start_clock;
     pthread_mutex_t print;
 	pthread_mutex_t death;
 }               t_data;
+
+
+#define TRUE 1
+#define FALSE 0
 
 int	        ft_isdigit(char c);
 int	        init_philo(t_data *var);
 int         parse(int ac, char **av, t_data *var);
 int	        exit_msg(char *msg, char *color, int erno);
 int	        ft_atoi(const char *str);
-long long   get_time(long start_time);
+long long   get_time(long long start_time);
 
 void    *philo_cycle(t_philo *philo);
 
