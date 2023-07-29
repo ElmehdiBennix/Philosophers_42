@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Debug",
             "program": "/home/bennix/myProjects/Philosophers_42/philo",
-            "args": ["5" , "85"  , "98" , "60" ],
+            "args": ["4" , "410"  , "200" , "100" ],
             "cwd": "${workspaceFolder}"
         }
     ]
