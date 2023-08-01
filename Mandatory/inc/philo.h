@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/07/29 04:05:32 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/01 15:34:19 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_philo {
     pthread_t           p_thread;
     pthread_mutex_t     *r_fork;
     pthread_mutex_t     l_fork;
-    unsigned int        meals_n;
+    int                 meals_n;
     long long           last_meal;
     struct s_data       *var;
 }              t_philo;
@@ -46,6 +46,7 @@ typedef struct s_data{
     unsigned int    sleeping_t;
     int             eating_reps;
     long long       start_clock;
+    bool            stop;
     pthread_mutex_t print;
 	pthread_mutex_t death;
 }               t_data;
