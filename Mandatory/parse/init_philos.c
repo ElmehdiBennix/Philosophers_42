@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:17:20 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/01 15:36:34 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/01 15:36:48 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ int	init_philo(t_data *var)
 	while (++i < var->n_philos)
 		if (pthread_join(var->philos[i].p_thread, NULL) != 0)
 			return (2);
-	
+	// add death checker hir 
 	return (0);
 }
