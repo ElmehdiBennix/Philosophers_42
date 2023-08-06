@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 00:35:25 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/06 10:07:04 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/06 10:08:03 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,7 @@ void    philo_cycle(t_philo *philo)
         print_msg(philo,sleep);
         ft_usleep(philo->var->sleeping_t);
         print_msg(philo,think);
-        if(livelihood(philo) == TRUE)
-           return;
+        livelihood(philo);
     }
 }
 
