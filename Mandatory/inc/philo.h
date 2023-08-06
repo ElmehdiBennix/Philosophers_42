@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/04 01:25:00 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/06 10:05:44 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_philo {
     pthread_mutex_t     l_fork;
     int                 meals_n;
     long long           last_meal;
+    pthread_mutex_t     print;
     struct s_data       *var;
 }              t_philo;
 
@@ -47,13 +48,17 @@ typedef struct s_data{
     int             eating_reps;
     long long       start_clock;
     bool            stop;
-    pthread_mutex_t print;
 	pthread_mutex_t death;
 }               t_data;
 
 
 #define TRUE 1
 #define FALSE 0
+
+# define take "has taken a fork"
+# define eat "is eating"
+# define sleep "is sleeping"
+# define think "is thinking"
 
 int	        ft_isdigit(char c);
 int	        init_philo(t_data *var);
@@ -62,7 +67,7 @@ int	        exit_msg(char *msg, char *color, int erno);
 int	        ft_atoi(const char *str);
 long long   get_time(long long start_time);
 
-void    *philo_cycle(t_philo *philo);
+void    philo_cycle(t_philo *philo);
 
 
 #endif
