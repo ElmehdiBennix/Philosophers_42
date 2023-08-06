@@ -6,11 +6,13 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:17:20 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/06 10:06:32 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/06 10:16:27 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../inc/philo.h"
+
+//fails with 1 philo  199 69 69 69 
 
 int	init_philo(t_data *var)
 {
@@ -48,7 +50,5 @@ int	init_philo(t_data *var)
 		if (pthread_join(var->philos[i].p_thread, NULL) != 0)
 			return (2);
 	}
-	// add death checker hir
-	// livelihood(var->philos);
 	return (0);
 }
