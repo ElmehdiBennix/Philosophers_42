@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:07:21 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/07 06:26:48 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/04 01:10:37 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,13 @@ int	ft_atoi(const char *str)
 	else if (overflow && sign == 1)
 		return ((int)LONG_MAX);
 	return (res * sign);
+}
+
+long long get_time(long long start_time)
+{
+    struct timeval time;
+
+    if(gettimeofday(&time, NULL) != 0)
+		exit_msg("error",RED,2);
+    return ((time.tv_sec * 1000 + time.tv_usec / 1000) - start_time);
 }

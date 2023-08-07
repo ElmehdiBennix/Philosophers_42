@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/15 20:13:14 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/07 06:32:46 by ebennix          ###   ########.fr       */
+/*   Created: 2023/08/07 06:31:05 by ebennix           #+#    #+#             */
+/*   Updated: 2023/08/07 06:31:32 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/philo.h"
+#include "../inc/philo.h"
 
-int	philo(int ac, char **av)
+void	ft_usleep(long time_in_ms)
 {
-	t_data	var;
+	long	start_time;
 
-	if (parse(ac, av, &var) != 0)
-		return (2);
-	// while (1);
-	if (init_philo(&var) != 0)
-		return (3);
-	// free memory after the user
-	return (0);
+	start_time = get_time(0);
+	while (get_time(start_time) < time_in_ms)
+		usleep(100);
 }
 
-int	main(int ac, char **av)
+long long	get_time(long long start_time)
 {
-	if (ac < 5 || ac > 6)
-		return (exit_msg("4 or 5 arguments are allowed.", YELLOW, 1));
-	return (philo(ac, ++av));
+	struct timeval	time;
+
+	if (gettimeofday(&time, NULL) != 0)
+		exit_msg("failed to get time of day.", RED, 2);
+	return ((time.tv_sec * 1000 + time.tv_usec / 1000) - start_time);
 }
