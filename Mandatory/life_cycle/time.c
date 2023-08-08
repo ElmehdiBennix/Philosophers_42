@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 06:31:05 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/08 14:10:28 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/08 14:42:36 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ long long	get_time(long long start_time)
 
 void	livelihood(t_data *var)
 {
-	unsigned int i;
+	int i;
 
 	i = 0;
 	while(1)
@@ -44,6 +44,8 @@ void	livelihood(t_data *var)
 			printf("-> %llu ms philo %d died.\n", get_time(var->start_clock),var->philos[i].id);
 			break;
 		}
+		if (var->n_philos == var->satisfied)
+			break;
 		i++;
 		if (i == var->n_philos)
 			i = 0;

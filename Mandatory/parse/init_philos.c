@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:17:20 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/08 12:56:49 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/08 14:43:41 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 int	init_philo(t_data *var)
 {
-	unsigned int	i;
+	int	i;
 
-	var->start_clock = get_time(0);
-	// var->stop = false;
-	// if (pthread_mutex_init(&var->death, NULL) != 0)
-	// 	return (2);
-	if (pthread_mutex_init(&var->print, NULL) != 0)
-		return (2);
-	i = -1;
 	var->philos = malloc(sizeof(t_philo) * var->n_philos);
 	if (!var->philos)
 		return (2);
+	var->satisfied = 0;
+	var->start_clock = get_time(0);
+	if (pthread_mutex_init(&var->print, NULL) != 0)
+		return (2);
+	i = -1;
 	while (++i < var->n_philos)
 	{
 		var->philos[i].id = i + 1;

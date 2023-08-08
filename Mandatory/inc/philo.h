@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/08 14:08:01 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/08 14:38:17 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,14 @@ typedef struct s_philo
 typedef struct s_data
 {
 	t_philo			*philos;
-	unsigned int	n_philos;
+	int				n_philos;
 	unsigned int	death_t;
 	unsigned int	eating_t;
 	unsigned int	sleeping_t;
 	int				eating_reps;
 	long long		start_clock;
-	bool			stop;
+	int				satisfied;
 	pthread_mutex_t	print;
-	// pthread_mutex_t	death;
 }					t_data;
 
 # define take "has taken a fork"
