@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/08 15:40:00 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/08 15:43:23 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,15 @@ typedef struct s_data
 	pthread_mutex_t	print;
 }					t_data;
 
-# define take "has taken a fork"
-# define eat "is eating"
-# define sleepe "is sleeping"
-# define think "is thinking"
-
 int			ft_isdigit(char c);
-int			init_var(t_data *var);
-int			parse(int ac, char **av, t_data *var);
-int			exit_msg(char *msg, char *color, int erno);
 int			ft_atoi(const char *str);
 long long	get_time(long long start_time);
 void		ft_usleep(long time_in_ms);
+int			exit_msg(char *msg, char *color, int erno);
+int			parse(int ac, char **av, t_data *var);
+int			init_var(t_data *var);
 void		*philo_cycle(t_philo *philo);
-void		data_destroyer(t_data *var);
 void		livelihood(t_data *var);
+void		data_destroyer(t_data *var);
 
 #endif
