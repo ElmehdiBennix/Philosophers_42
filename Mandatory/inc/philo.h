@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/07 06:31:41 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/08 12:29:36 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct s_philo
 	pthread_mutex_t	l_fork;
 	int				meals_n;
 	long long		last_meal;
-	pthread_mutex_t	print;
 	struct s_data	*var;
 }					t_philo;
 
@@ -44,25 +43,24 @@ typedef struct s_data
 	int				eating_reps;
 	long long		start_clock;
 	bool			stop;
+	pthread_mutex_t	print;
 	pthread_mutex_t	death;
 }					t_data;
 
-# define TRUE 1
-# define FALSE 0
-
 # define take "has taken a fork"
 # define eat "is eating"
-# define sleep "is sleeping"
+# define sleepe "is sleeping"
 # define think "is thinking"
 
-int					ft_isdigit(char c);
-int					init_philo(t_data *var);
-int					parse(int ac, char **av, t_data *var);
-int					exit_msg(char *msg, char *color, int erno);
-int					ft_atoi(const char *str);
-long long			get_time(long long start_time);
-void				ft_usleep(long time_in_ms);
-
-void				philo_cycle(t_philo *philo);
+int			ft_isdigit(char c);
+int			init_philo(t_data *var);
+int			parse(int ac, char **av, t_data *var);
+int			exit_msg(char *msg, char *color, int erno);
+int			ft_atoi(const char *str);
+long long	get_time(long long start_time);
+void		ft_usleep(long time_in_ms);
+void		*philo_cycle(t_philo *philo);
+void		data_destroyer(t_data *var);
+void		livelihood(t_data *var);
 
 #endif

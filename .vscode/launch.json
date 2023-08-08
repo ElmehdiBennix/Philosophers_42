@@ -8,8 +8,8 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug",
-            "program": "/home/bennix/myProjects/Philosophers_42/philo",
-            "args": ["4" , "410"  , "200" , "100" ],
+            "program": "/Users/ebennix/Documents/Philosophers_42/philo",
+            "args": ["4" , "310"  , "200" , "100" ],
             "cwd": "${workspaceFolder}"
         }
     ]
