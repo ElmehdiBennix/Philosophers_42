@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:13:14 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/08 15:41:07 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/08 16:05:25 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,5 @@ int	main(int ac, char **av)
 	}
 	return (exit_msg("4 or 5 arguments are allowed.", YELLOW, 1));
 }
+
+//./philo 199 69 69 69 left
