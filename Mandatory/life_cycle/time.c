@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 06:31:05 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/08 14:05:38 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/08 14:10:28 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,8 @@ void	livelihood(t_data *var)
 	while(1)
 	{
 		usleep(600);
-
 		if (get_time(var->philos[i].last_meal) > var->death_t)
 		{
-			printf("id = %d this is the last meal %lld > death time %d\n", var->philos[i].id,
-					get_time(var->philos[i].last_meal), var->death_t);
 			pthread_mutex_lock(&var->print);
 			printf("-> %llu ms philo %d died.\n", get_time(var->start_clock),var->philos[i].id);
 			break;
