@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 08:25:36 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/08 06:42:49 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/08 15:42:38 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,11 @@
 # define EXIT_2 "Can't have time_to_die under 60 ms."
 # define EXIT_3 "Can't have time_to_eat under 60 ms."
 # define EXIT_4 "Can't have time_to_sleep under 60 ms."
+
+// actions text
+# define take "has taken a fork"
+# define eat "is eating"
+# define sleepe "is sleeping"
+# define think "is thinking"
 
 #endif
