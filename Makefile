@@ -6,7 +6,7 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 07:56:09 by ebennix           #+#    #+#              #
-#    Updated: 2023/08/07 06:30:00 by ebennix          ###   ########.fr        #
+#    Updated: 2023/08/08 06:43:33 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ B_HEADER := inc/philo_bonus.h inc/colors.h
 
 CC := cc
 
-CFLAGS := -g -Wall -Wextra -lpthread
+CFLAGS := -g -Wall -Wextra
 # -Werror
 
 FILES := Mandatory/philo				Mandatory/utils/exit				Mandatory/utils/tools		\

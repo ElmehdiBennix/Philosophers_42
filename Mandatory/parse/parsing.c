@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:47:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/07 06:32:15 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/08 13:59:52 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,14 @@ static int	valid_data(t_data *var)
 {
 	if (var->n_philos > 200)
 		return (exit_msg(EXIT_1, YELLOW, 2));
+	if (var->n_philos == 0)
+		return (exit_msg("cant have 0 philo", YELLOW, 2));
 	if (var->death_t < 60)
 		return (exit_msg(EXIT_2, YELLOW, 2));
 	if (var->eating_t < 60)
 		return (exit_msg(EXIT_3, YELLOW, 2));
 	if (var->sleeping_t < 60)
 		return (exit_msg(EXIT_4, YELLOW, 2));
-	if (var->n_philos == 1)
-	{
-		printf("-> 0 ms philo 1 died.\n");
-		return (2);
-	}
 	return (0);
 }
 
