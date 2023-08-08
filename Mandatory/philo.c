@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:13:14 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/08 07:43:17 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/08 15:41:07 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	main(int ac, char **av)
 	if (ac == 5 || ac == 6)
 	{
 		if (parse(ac, ++av, &var) != 0)
-			return (1);
-		if (init_philo(&var) != 0)
 			return (2);
+		if (init_var(&var) != 0)
+			return (3);
 		data_destroyer(&var);
 		return (0);
 	}

@@ -6,23 +6,16 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:17:20 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/08 14:43:41 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/08 15:40:49 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-int	init_philo(t_data *var)
+static	int init_philos(t_data *var)
 {
 	int	i;
 
-	var->philos = malloc(sizeof(t_philo) * var->n_philos);
-	if (!var->philos)
-		return (2);
-	var->satisfied = 0;
-	var->start_clock = get_time(0);
-	if (pthread_mutex_init(&var->print, NULL) != 0)
-		return (2);
 	i = -1;
 	while (++i < var->n_philos)
 	{
@@ -39,12 +32,26 @@ int	init_philo(t_data *var)
 		if (pthread_create(&var->philos[i].p_thread, NULL, (void *)philo_cycle ,&var->philos[i]) != 0)
 			return (2);
 	}
+	return (0);
+}
+
+int	init_var(t_data *var)
+{
+	int	i;
+
 	i = -1;
+	var->satisfied = 0;
+	var->start_clock = get_time(0);
+	if (pthread_mutex_init(&var->print, NULL) != 0)
+		return (2);
+	var->philos = malloc(sizeof(t_philo) * var->n_philos);
+	if (!var->philos)
+		return (2);
+	if (init_philos(var) != 0)
+		return (2);
 	while (++i < var->n_philos)
-	{
 		if (pthread_detach(var->philos[i].p_thread) != 0)
 			return (2);
-	}
 	livelihood(var);
 	return (0);
 }

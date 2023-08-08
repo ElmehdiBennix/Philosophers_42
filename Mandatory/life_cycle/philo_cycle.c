@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 00:35:25 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/08 14:34:30 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/08 15:05:35 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	unlock_fork(t_philo *philo)
 void	*philo_cycle(t_philo *philo)
 {
 	if (philo->id % 2 == 0)
-		usleep(250);
+		usleep(400);
 	philo->last_meal = get_time(0);
 	while (1)
 	{
