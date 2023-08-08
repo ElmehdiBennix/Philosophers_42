@@ -6,13 +6,13 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 06:31:05 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/08 15:05:31 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/08 16:10:08 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-void	ft_usleep(long time_in_ms)
+void	ft_usleep(unsigned long time_in_ms)
 {
 	long	start_time;
 
@@ -21,7 +21,7 @@ void	ft_usleep(long time_in_ms)
 		usleep(100);
 }
 
-long long	get_time(long long start_time)
+unsigned long	get_time(unsigned long start_time)
 {
 	struct timeval	time;
 
@@ -41,11 +41,12 @@ void	livelihood(t_data *var)
 		if (get_time(var->philos[i].last_meal) > var->death_t)
 		{
 			pthread_mutex_lock(&var->print);
-			printf("-> %llu ms philo %d died.\n", get_time(var->start_clock),var->philos[i].id);
-			break;
+			printf("-> %lu ms philo %d died.\n", get_time(var->start_clock),var->philos[i].id);
+			// var->stop = TRUE;
+			return;
 		}
 		if (var->n_philos == var->satisfied)
-			break;
+			return;
 		i++;
 		if (i == var->n_philos)
 			i = 0;

@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:17:20 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/08 15:40:49 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/08 16:05:44 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	init_var(t_data *var)
 
 	i = -1;
 	var->satisfied = 0;
+	// var->stop = FALSE;
 	var->start_clock = get_time(0);
 	if (pthread_mutex_init(&var->print, NULL) != 0)
 		return (2);
