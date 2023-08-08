@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/08 14:38:17 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/08 15:40:00 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_data
 # define think "is thinking"
 
 int			ft_isdigit(char c);
-int			init_philo(t_data *var);
+int			init_var(t_data *var);
 int			parse(int ac, char **av, t_data *var);
 int			exit_msg(char *msg, char *color, int erno);
 int			ft_atoi(const char *str);
