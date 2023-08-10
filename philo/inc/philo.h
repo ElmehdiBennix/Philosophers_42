@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/08 16:10:22 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/10 11:33:24 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct s_data
 	unsigned long	start_clock;
 	int				satisfied;
 	pthread_mutex_t	print;
-	// bool			stop;
 }					t_data;
 
 int			ft_isdigit(char c);
