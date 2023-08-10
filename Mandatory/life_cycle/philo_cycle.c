@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 00:35:25 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/08 16:05:58 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/10 11:28:39 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	print_msg(t_philo *philo, char *action)
 {
 	pthread_mutex_lock(&philo->var->print);
-	printf("-> %llu ms philo %d %s.\n", get_time(0)-philo->var->start_clock,
+	printf("-> %lu ms philo %d %s.\n", get_time(0)-philo->var->start_clock,
 			philo->id, action);
 	pthread_mutex_unlock(&philo->var->print);
 }
@@ -36,9 +36,8 @@ static void	unlock_fork(t_philo *philo)
 void	philo_cycle(t_philo *philo)
 {
 	if (philo->id % 2 == 0)
-		usleep(400);
+		usleep(250);
 	philo->last_meal = get_time(0);
-	// while (philo->var->stop == FALSE)
 	while(1)
 	{
 		lock_fork(philo);
