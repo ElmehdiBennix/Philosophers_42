@@ -6,7 +6,7 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 07:56:09 by ebennix           #+#    #+#              #
-#    Updated: 2023/08/10 15:27:50 by ebennix          ###   ########.fr        #
+#    Updated: 2023/08/10 15:30:35 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ EXE := philo
 
 B_EXE := philo_bonus
 
-HEADER := inc/philo.h inc/colors.h
+HEADER := inc/philo_bonus.h		inc/colors.h
 
 CC := cc
 
