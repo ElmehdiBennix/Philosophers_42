@@ -6,7 +6,7 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 07:56:09 by ebennix           #+#    #+#              #
-#    Updated: 2023/08/08 15:45:28 by ebennix          ###   ########.fr        #
+#    Updated: 2023/08/10 15:27:50 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,25 +16,17 @@ B_EXE := philo_bonus
 
 HEADER := inc/philo.h inc/colors.h
 
-B_HEADER := inc/philo_bonus.h inc/colors.h
-
 CC := cc
 
 CFLAGS := -g -Wall -Wextra
 # -Werror
 
-FILES := Mandatory/philo				Mandatory/utils/exit				Mandatory/utils/tools		\
-		 Mandatory/parse/init_philos	Mandatory/life_cycle/philo_cycle	Mandatory/parse/parsing		\
-		 Mandatory/life_cycle/time	\
-
-B_FILES := bonus/philo				bonus/utils/error				bonus/utils/tools		\
-		   bonus/parse/init_philos	bonus/life_cycle/philo_cycle	bonus/parse/parsing		\
+FILES := philo_bonus			utils/exit					utils/tools			\
+		 parse/init_philos		life_cycle/philo_cycle		parse/parsing		\
+		 life_cycle/time														\
 
 SRC := $(FILES:=.c)
 OBJ := $(SRC:.c=.o)
-
-B_SRC := $(B_FILES:=.c)
-B_OBJ := $(B_SRC:.c=.o)
 
 RM := rm -rf
 
@@ -48,10 +40,7 @@ bonus : $(B_EXE)
 $(EXE) : $(OBJ)
 	$(CC) $(OBJ) -o $(EXE)
 
-$(B_EXE) : $(B_OBJ)
-	$(CC) $(B_OBJ) -o $(B_EXE)
-
-%.o : %.c $(HEADER) || $(B_HEADER)
+%.o : %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :

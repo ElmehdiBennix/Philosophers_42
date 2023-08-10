@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/15 20:13:14 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/07 06:11:17 by ebennix          ###   ########.fr       */
+/*   Created: 2023/05/19 17:03:11 by ebennix           #+#    #+#             */
+/*   Updated: 2023/08/08 14:44:33 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/philo.h"
+#include "../inc/philo.h"
 
-int philo(int ac, char **av)
+int	exit_msg(char *msg, char *color, int erno)
 {
-    t_data var;
-
-    if (parse(ac ,av, &var) != 0)
-        return (1);
-    if (init_philo(&var) != 0)
-        return (2);
-    // free memory after the user
-
-    return (0);
+	printf("%s-> %s %s\n", color, msg, DEFAULT);
+	return (erno);
 }
 
-int main (int ac, char **av)
+void	data_destroyer(t_data *var)
 {
-    if (ac < 5 || ac > 6)
-        return (exit_msg("4 or 5 arguments are allowed.", YELLOW, 1));
-    return (philo(ac, ++av));
+	int	i;
+
+	i = -1;
+	pthread_mutex_destroy(&var->print);
+	while (++i < var->n_philos)
+		pthread_mutex_destroy(&var->philos[i].l_fork);
 }

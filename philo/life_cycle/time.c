@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 06:31:05 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/10 11:29:04 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/10 14:24:03 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	livelihood(t_data *var)
 	i = 0;
 	while(1)
 	{
-		usleep(800);
+		usleep(500);
 		if (get_time(var->philos[i].last_meal) > var->death_t)
 		{
 			pthread_mutex_lock(&var->print);
