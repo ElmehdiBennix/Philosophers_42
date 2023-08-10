@@ -3,7 +3,8 @@
         "locale": "c",
         "colors.h": "c",
         "stdio.h": "c",
-        "philo.h": "c"
+        "philo.h": "c",
+        "philo_bonus.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
