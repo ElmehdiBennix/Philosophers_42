@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:03:11 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/10 15:30:12 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/11 20:07:26 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int	exit_msg(char *msg, char *color, int erno)
 	return (erno);
 }
 
-void	data_destroyer(t_data *var)
-{
-	int	i;
+// void	data_destroyer(t_data *var)
+// {
+// 	int	i;
 
-	i = -1;
-	pthread_mutex_destroy(&var->print);
-	while (++i < var->n_philos)
-		pthread_mutex_destroy(&var->philos[i].l_fork);
-}
+// 	i = -1;
+// 	pthread_mutex_destroy(&var->print);
+// 	while (++i < var->n_philos)
+// 		pthread_mutex_destroy(&var->philos[i].l_fork);
+// }
