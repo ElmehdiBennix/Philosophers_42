@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 00:35:25 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/10 15:29:47 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/12 03:53:03 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,33 @@
 
 static void	print_msg(t_philo *philo, char *action)
 {
-	pthread_mutex_lock(&philo->var->print);
+	sem_wait(philo->var->print);
 	printf("-> %lu ms philo %d %s.\n", get_time(0)-philo->var->start_clock,
 			philo->id, action);
-	pthread_mutex_unlock(&philo->var->print);
+	sem_post(philo->var->print);
 }
 
 static void	lock_fork(t_philo *philo)
 {
-	pthread_mutex_lock(&(philo->l_fork));
+	sem_wait(philo->var->fork);
 	print_msg(philo, take);
-	pthread_mutex_lock(philo->r_fork);
+	sem_wait(philo->var->fork);
 	print_msg(philo, take);
 }
+
 static void	unlock_fork(t_philo *philo)
 {
-	pthread_mutex_unlock(&(philo->l_fork));
-	pthread_mutex_unlock(philo->r_fork);
+	sem_post(philo->var->fork);
+	sem_post(philo->var->fork);
 }
 
 void	philo_cycle(t_philo *philo)
 {
+	pthread_t	monitor_th;
+
 	if (philo->id % 2 == 0)
 		usleep(250);
+	pthread_create(&monitor_th ,NULL,(void *)livelihood,philo);
 	philo->last_meal = get_time(0);
 	while(1)
 	{
@@ -48,9 +52,13 @@ void	philo_cycle(t_philo *philo)
 			philo->meals_n++;
 		unlock_fork(philo);
 		if (philo->var->eating_reps == philo->meals_n)
-			philo->var->satisfied++;
+		{
+			sem_post(philo->var->meals_n);
+			exit(0);//detach
+		}
 		print_msg(philo, sleepe);
 		ft_usleep(philo->var->sleeping_t);
 		print_msg(philo, think);
 	}
 }
+//➜  philo_bonus git:(main) ✗ ./philo 1 310 200 100
