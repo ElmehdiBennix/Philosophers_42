@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 06:31:05 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/13 01:06:17 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/13 01:36:13 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ unsigned long	get_time(unsigned long start_time)
 
 void	livelihood(t_philo *philo)
 {
-	int i;
-
-	i = 0;
-	while(1)
+	while(TRUE)
 	{
 		usleep(500);
 		if (get_time(philo->last_meal) > philo->var->death_t)

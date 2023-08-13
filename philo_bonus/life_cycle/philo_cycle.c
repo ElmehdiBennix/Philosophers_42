@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 00:35:25 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/13 01:06:11 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/13 01:38:39 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	philo_cycle(t_philo *philo)
 		usleep(250);
 	pthread_create(&monitor_th ,NULL,(void *)livelihood,philo);
 	philo->last_meal = get_time(0);
-	while(1)
+	while(TRUE)
 	{
 		lock_fork(philo);
 		print_msg(philo, eat);
@@ -61,4 +61,3 @@ void	philo_cycle(t_philo *philo)
 		print_msg(philo, think);
 	}
 }
-//➜  philo_bonus git:(main) ✗ ./philo 1 310 200 100
