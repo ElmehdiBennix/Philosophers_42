@@ -6,13 +6,11 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 07:56:09 by ebennix           #+#    #+#              #
-#    Updated: 2023/08/10 15:27:58 by ebennix          ###   ########.fr        #
+#    Updated: 2023/08/13 01:25:31 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXE := philo
-
-B_EXE := philo_bonus
 
 HEADER := inc/philo.h inc/colors.h
 
@@ -28,8 +26,6 @@ SRC := $(FILES:=.c)
 OBJ := $(SRC:.c=.o)
 
 RM := rm -rf
-
-m := MakefileAutoPush
 
 
 all : $(EXE)
@@ -52,10 +48,4 @@ fclean : clean
 
 re : fclean all
 
-git :
-	git add .
-	git status
-	git commit -m "$(m)"
-	git push
-
-.PHONY : all clean fclean re git
+.PHONY : all clean fclean re
