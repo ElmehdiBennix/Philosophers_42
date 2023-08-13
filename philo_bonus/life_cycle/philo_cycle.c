@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 00:35:25 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/12 03:53:03 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/13 01:06:11 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void	philo_cycle(t_philo *philo)
 		unlock_fork(philo);
 		if (philo->var->eating_reps == philo->meals_n)
 		{
-			sem_post(philo->var->meals_n);
-			exit(0);//detach
+			sem_post(philo->var->satisfied);
+			exit(0);
 		}
 		print_msg(philo, sleepe);
 		ft_usleep(philo->var->sleeping_t);

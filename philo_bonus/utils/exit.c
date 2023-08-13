@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:03:11 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/11 20:07:26 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/13 01:31:16 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int	exit_msg(char *msg, char *color, int erno)
 // 	int	i;
 
 // 	i = -1;
-// 	pthread_mutex_destroy(&var->print);
-// 	while (++i < var->n_philos)
-// 		pthread_mutex_destroy(&var->philos[i].l_fork);
+// 	sem_destroy(var->fork);
+// 	sem_destroy(var->print);
+// 	sem_destroy(var->death);
+// 	if (var->eating_reps != -1)
+// 		sem_destroy(var->satisfied);
 // }

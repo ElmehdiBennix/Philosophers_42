@@ -6,13 +6,11 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 07:56:09 by ebennix           #+#    #+#              #
-#    Updated: 2023/08/10 15:30:35 by ebennix          ###   ########.fr        #
+#    Updated: 2023/08/13 01:25:23 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE := philo
-
-B_EXE := philo_bonus
+EXE := philo_bonus
 
 HEADER := inc/philo_bonus.h		inc/colors.h
 
@@ -23,14 +21,12 @@ CFLAGS := -g -Wall -Wextra
 
 FILES := philo_bonus			utils/exit					utils/tools			\
 		 parse/init_philos		life_cycle/philo_cycle		parse/parsing		\
-		 life_cycle/time														\
+		 life_cycle/time		parse/routine_fork								\
 
 SRC := $(FILES:=.c)
 OBJ := $(SRC:.c=.o)
 
 RM := rm -rf
-
-m := MakefileAutoPush
 
 
 all : $(EXE)
@@ -53,10 +49,4 @@ fclean : clean
 
 re : fclean all
 
-git :
-	git add .
-	git status
-	git commit -m "$(m)"
-	git push
-
-.PHONY : all clean fclean re git
+.PHONY : all clean fclean re

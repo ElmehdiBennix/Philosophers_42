@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:12:33 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/12 03:23:03 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/13 01:28:41 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_data
 	t_philo			*philos;
 	sem_t			*fork;
 	sem_t			*print;
-	sem_t			*meals_n;
+	sem_t			*satisfied;
 	sem_t			*death;
 	int				n_philos;
 	unsigned int	death_t;
@@ -58,5 +58,7 @@ int				parse(int ac, char **av, t_data *var);
 int				init_var(t_data *var);
 void			philo_cycle(t_philo *philo);
 void			livelihood(t_philo *philo);
+void			routine_fork(t_data *var);
+void			data_destroyer(t_data *var);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 06:31:05 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/12 03:46:29 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/13 01:06:17 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ void	livelihood(t_philo *philo)
 		{
 			sem_wait(philo->var->print);
 			printf("-> %lu ms philo %d died.\n", get_time(philo->var->start_clock),philo->id);
-			sem_post(philo->var->death);
+			if (philo->var->eating_reps == -1)
+				sem_post(philo->var->death);
+			while (philo->meals_n != philo->var->eating_reps && philo->var->eating_reps != -1)
+				sem_post(philo->var->satisfied);
 		}
 	}
 }

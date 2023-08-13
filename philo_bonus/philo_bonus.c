@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:13:14 by ebennix           #+#    #+#             */
-/*   Updated: 2023/08/11 20:07:19 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/08/13 01:31:57 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ int	main(int ac, char **av)
 			return (2);
 		if (init_var(&var) != 0)
 			return (3);
-		// data_destroyer(&var);
+		routine_fork(&var);
+		// data_destroyer(&var); // deprecated
 		return (0);
 	}
 	return (exit_msg("4 or 5 arguments are allowed.", YELLOW, 1));
 }
-
-//./philo 199 69 69 69 left
