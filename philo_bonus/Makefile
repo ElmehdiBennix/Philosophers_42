@@ -6,7 +6,7 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 07:56:09 by ebennix           #+#    #+#              #
-#    Updated: 2023/08/13 01:25:23 by ebennix          ###   ########.fr        #
+#    Updated: 2023/08/13 02:14:33 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,10 @@ HEADER := inc/philo_bonus.h		inc/colors.h
 
 CC := cc
 
-CFLAGS := -g -Wall -Wextra
-# -Werror
+CFLAGS := -Wall -Wextra -Werror
 
-FILES := philo_bonus			utils/exit					utils/tools			\
-		 parse/init_philos		life_cycle/philo_cycle		parse/parsing		\
-		 life_cycle/time		parse/routine_fork								\
+FILES := parse/init_philos	life_cycle/philo_cycle	parse/parsing	utils/exit	\
+		 life_cycle/time	parse/routine_fork		utils/tools					\
 
 SRC := $(FILES:=.c)
 OBJ := $(SRC:.c=.o)
@@ -34,7 +32,7 @@ all : $(EXE)
 bonus : $(B_EXE)
 
 $(EXE) : $(OBJ)
-	$(CC) $(OBJ) -o $(EXE)
+	$(CC) $(CFLAGS) philo_bonus.c $(OBJ) -o $(EXE)
 
 %.o : %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
