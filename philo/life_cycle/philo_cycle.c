@@ -14,6 +14,7 @@
 
 static void	print_msg(t_philo *philo, char *action)
 {
+    printf("--------------------------->, %p", &philo->var->print);
 	pthread_mutex_lock(&philo->var->print);
 	printf("-> %lu ms philo %d %s.\n", get_time(0)-philo->var->start_clock,
 			philo->id, action);
