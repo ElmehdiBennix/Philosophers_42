@@ -12,11 +12,11 @@
 
 EXE := philo_bonus
 
-HEADER := inc/philo_bonus.h		inc/colors.h
+HEADER := inc/philo_bonus.h	inc/colors.h
 
 CC := cc
 
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra -Werror -fsanitize=thread -g
 
 FILES := parse/init_philos	life_cycle/philo_cycle	parse/parsing	utils/exit	\
 		 life_cycle/time	parse/routine_fork		utils/tools					\
@@ -26,10 +26,9 @@ OBJ := $(SRC:.c=.o)
 
 RM := rm -rf
 
+# **************************************************************************** #
 
 all : $(EXE)
-
-bonus : $(B_EXE)
 
 $(EXE) : $(OBJ)
 	$(CC) $(CFLAGS) philo_bonus.c $(OBJ) -o $(EXE)
@@ -39,12 +38,12 @@ $(EXE) : $(OBJ)
 
 clean :
 	$(RM) $(OBJ)
-	$(RM) $(B_OBJ)
 
 fclean : clean
 	$(RM) $(EXE)
-	$(RM) $(B_EXE)
 
 re : fclean all
+
+# **************************************************************************** #
 
 .PHONY : all clean fclean re
